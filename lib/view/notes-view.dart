@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app_view/widgets/coustom-appbar.dart';
-import 'package:notes_app_view/widgets/coustom-notesview.dart';
 import 'package:notes_app_view/widgets/listviewnotes.dart';
 
 class NotesAppView extends StatelessWidget {
@@ -8,19 +7,24 @@ class NotesAppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15.0),
-      child: Column(children: [
-        SizedBox(
-          height: 40,
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          splashColor: Colors.lightBlue,
+          child: const Icon(Icons.add),
         ),
-        CoustomAppBar(),
-        SizedBox(
-          height: 15,
-        ),
-        ListViewNotes()
-      ]),
-    ));
+        body: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(children: [
+            SizedBox(
+              height: 62,
+            ),
+            CoustomAppBar(),
+            SizedBox(
+              height: 15,
+            ),
+            ListViewNotes()
+          ]),
+        ));
   }
 }

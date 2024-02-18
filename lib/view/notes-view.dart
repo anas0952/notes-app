@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_view/widgets/add-notebottomshet.dart';
 import 'package:notes_app_view/widgets/coustom-appbar.dart';
 import 'package:notes_app_view/widgets/listviewnotes.dart';
 
@@ -9,8 +10,11 @@ class NotesAppView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          splashColor: Colors.lightBlue,
+          onPressed: () {
+            showModalBottomSheet(
+                context: context,
+                builder: (context) => const AddNoteBottomShet());
+          },
           child: const Icon(Icons.add),
         ),
         body: const Padding(

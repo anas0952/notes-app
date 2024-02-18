@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class CoustomButton extends StatelessWidget {
   const CoustomButton({
     super.key,
+    required this.text,
   });
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +20,10 @@ class CoustomButton extends StatelessWidget {
             color: Colors.amberAccent,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: const Center(
+          child: Center(
             child: Text(
-              'Add Notes',
-              style: TextStyle(
+              text,
+              style: const TextStyle(
                   fontSize: 18,
                   color: Colors.black,
                   fontWeight: FontWeight.bold),

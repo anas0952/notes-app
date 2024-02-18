@@ -30,7 +30,9 @@ class NoteBottomShet extends StatelessWidget {
             SizedBox(
               height: 60,
             ),
-            CoustomButton()
+            CoustomButton(
+              text: 'Add Notes',
+            )
           ],
         ),
       ),

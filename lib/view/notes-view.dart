@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_view/constants.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/notebottomshet.dart';
 import 'package:notes_app_view/widgets/notes_view_appbar/coustom-appbar.dart';
 import 'package:notes_app_view/widgets/notes_view_body/listviewnotes.dart';

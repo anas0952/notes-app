@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:notes_app_view/widgets/coustom-notesview.dart';
+import 'package:flutter/material.dart';
+import 'package:notes_app_view/widgets/notes_view_body/coustom-notesview.dart';
 
 class ListViewNotes extends StatelessWidget {
   const ListViewNotes({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app_view/constants.dart';
-import 'package:notes_app_view/widgets/notebottomshet.dart';
-import 'package:notes_app_view/widgets/coustom-appbar.dart';
-import 'package:notes_app_view/widgets/listviewnotes.dart';
+import 'package:notes_app_view/widgets/notes_view_addnotes.dart/notebottomshet.dart';
+import 'package:notes_app_view/widgets/notes_view_appbar/coustom-appbar.dart';
+import 'package:notes_app_view/widgets/notes_view_body/listviewnotes.dart';
 
 class NotesAppView extends StatelessWidget {
   const NotesAppView({super.key});
@@ -13,7 +13,9 @@ class NotesAppView extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
-                context: context, builder: (context) => const NoteBottomShet());
+              context: context,
+              builder: (context) => const NoteBottomShet(),
+            );
           },
           child: const Icon(
             Icons.add,

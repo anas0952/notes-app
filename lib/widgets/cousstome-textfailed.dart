@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_view/constants.dart';
 
 class CoustomTextField extends StatelessWidget {
   const CoustomTextField({super.key});
@@ -7,20 +8,21 @@ class CoustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: TextField(
+      child: TextFormField(
+        cursorColor: kprimarycolor,
         decoration: InputDecoration(
             hintText: 'Add Notes ',
             enabledBorder: buildBorder(),
-            focusedBorder: buildBorder()),
+            focusedBorder: buildBorder(kprimarycolor)),
       ),
     );
   }
 }
 
-OutlineInputBorder buildBorder() {
+OutlineInputBorder buildBorder([color]) {
   return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8.0),
-      borderSide: const BorderSide(
-        color: Colors.white,
+      borderSide: BorderSide(
+        color: color ?? Colors.white,
       ));
 }

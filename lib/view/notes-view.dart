@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_view/constants.dart';
 import 'package:notes_app_view/widgets/add-notebottomshet.dart';
 import 'package:notes_app_view/widgets/coustom-appbar.dart';
 import 'package:notes_app_view/widgets/listviewnotes.dart';
@@ -15,7 +16,9 @@ class NotesAppView extends StatelessWidget {
                 context: context,
                 builder: (context) => const AddNoteBottomShet());
           },
-          child: const Icon(Icons.add),
+          child: const Icon(
+            Icons.add,
+          ),
         ),
         body: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 15.0),

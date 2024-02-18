@@ -27,6 +27,7 @@ class NotesAppView extends StatelessWidget {
               height: 62,
             ),
             CoustomAppBar(
+              title: 'Notes View ',
               icon: const Icon(Icons.search),
               onPressed: () {},
             ),

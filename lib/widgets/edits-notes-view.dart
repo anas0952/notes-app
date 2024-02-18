@@ -10,13 +10,16 @@ class EditNotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.0),
       child: Column(children: [
         SizedBox(
           height: 50,
         ),
-        CoustomAppBar(),
+        CoustomAppBar(
+          icon: Icon(Icons.check),
+          onPressed: () {},
+        ),
         SizedBox(
           height: 15,
         ),

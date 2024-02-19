@@ -61,6 +61,7 @@ class _NotesBottomShetBodyState extends State<NotesBottomShetBody> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
+                    // BlocProvider.of<AddNotesCubit>(context).addNote(notesModel);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});

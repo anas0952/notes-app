@@ -4,13 +4,14 @@ class CoustomButton extends StatelessWidget {
   const CoustomButton({
     super.key,
     required this.text,
+    required this.onTap,
   });
   final String text;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(

@@ -24,13 +24,16 @@ class EditNotesViewBody extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        const CoustomTextField(hint: 'Title'),
+        const CoustomTextField(
+          hint: 'Title',
+        ),
         const CoustomTextField(
           hint: 'Content',
           maxLines: 4,
         ),
-        const CoustomButton(
+        CoustomButton(
           text: 'Edit Notes',
+          onTap: () {},
         )
       ]),
     );

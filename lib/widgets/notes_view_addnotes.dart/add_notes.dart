@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app_view/cubits/add_notes_cubit/add_notes_cubit.dart';
+import 'package:notes_app_view/model/notes-model.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/cousstome-textfailed.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/coustom-button.dart';
 
@@ -12,6 +15,7 @@ class AddNotesBottomShet extends StatefulWidget {
 class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
   String? title, subTitle;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
@@ -38,7 +42,7 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
 
               CoustomTextField(
                 onSaved: (data) {
-                  title = data;
+                  subTitle = data;
                 },
                 hint: 'Content',
                 maxLines: 4,
@@ -51,7 +55,12 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    // BlocProvider.of<AddNotesCubit>(context).addNote(notesModel);
+                    NotesModel notes = NotesModel(
+                        title: title!,
+                        content: subTitle!,
+                        date: DateTime.now().toString(),
+                        color: Colors.red.value);
+                    BlocProvider.of<AddNotesCubit>(context).addNote(notes);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});

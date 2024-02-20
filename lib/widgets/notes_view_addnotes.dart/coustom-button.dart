@@ -5,7 +5,9 @@ class CoustomButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onTap,
+    this.isLoading = false,
   });
+  final bool isLoading;
   final String text;
   final void Function()? onTap;
   @override
@@ -22,13 +24,21 @@ class CoustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
           child: Center(
-            child: Text(
-              text,
-              style: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
-            ),
+            child: isLoading
+                ? const SizedBox(
+                    width: 25,
+                    height: 25,
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.black,
+                    ),
+                  )
+                : Text(
+                    text,
+                    style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
           ),
         ),
       ),

@@ -50,21 +50,26 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
               const SizedBox(
                 height: 60,
               ),
-              CoustomButton(
-                text: 'Add Notes',
-                onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    NotesModel notes = NotesModel(
-                        title: title!,
-                        content: subTitle!,
-                        date: DateTime.now().toString(),
-                        color: Colors.red.value);
-                    BlocProvider.of<AddNotesCubit>(context).addNote(notes);
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
+              BlocBuilder<AddNotesCubit, AddNotesState>(
+                builder: (context, state) {
+                  return CoustomButton(
+                    isLoading: state is AddNotesLoading ? true : false,
+                    text: 'Add Notes',
+                    onTap: () {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                        NotesModel notes = NotesModel(
+                            title: title!,
+                            content: subTitle!,
+                            date: DateTime.now().toString(),
+                            color: Colors.red.value);
+                        BlocProvider.of<AddNotesCubit>(context).addNote(notes);
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    },
+                  );
                 },
               )
             ],

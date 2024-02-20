@@ -8,20 +8,23 @@ class NoteBottomShet extends StatelessWidget {
   const NoteBottomShet({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddNotesCubit, AddNotesState>(
-      listener: (context, state) {
-        if (state is AddNotesSuccess) {
-          Navigator.pop(context);
-        }
-        if (state is AddNotesFaliure) {
-          print('failed ${state.errMessage}');
-        }
-      },
-      builder: (context, state) {
-        return ModalProgressHUD(
-            inAsyncCall: state is AddNotesLoading ? true : false,
-            child: const AddNotesBottomShet());
-      },
+    return BlocProvider(
+      create: (context) => AddNotesCubit(),
+      child: BlocConsumer<AddNotesCubit, AddNotesState>(
+        listener: (context, state) {
+          if (state is AddNotesSuccess) {
+            Navigator.pop(context);
+          }
+          if (state is AddNotesFaliure) {
+            print('failed ${state.errMessage}');
+          }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+              inAsyncCall: state is AddNotesLoading ? true : false,
+              child: const AddNotesBottomShet());
+        },
+      ),
     );
   }
 }

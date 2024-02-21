@@ -24,8 +24,10 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
       autovalidateMode: autovalidateMode,
       child: Container(
         width: double.infinity,
-        height: 400,
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.only(
+            left: 10.0,
+            right: 10.0,
+            bottom: MediaQuery.of(context).viewInsets.bottom),
         child: SingleChildScrollView(
           child: Column(
             children: [

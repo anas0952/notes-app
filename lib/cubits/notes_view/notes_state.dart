@@ -9,9 +9,3 @@ final class NotesSuccess extends NotesState {
 
   NotesSuccess({required this.data});
 }
-
-final class NotesFaliure extends NotesState {
-  final String msgerre;
-
-  NotesFaliure({required this.msgerre});
-}

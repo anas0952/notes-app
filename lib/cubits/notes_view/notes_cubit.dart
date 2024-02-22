@@ -10,13 +10,8 @@ class NotesCubit extends Cubit<NotesState> {
   List<NotesModel> listnotes = [];
 
   getData() async {
-    try {
-      Box<NotesModel> box = await Hive.openBox<NotesModel>(kHivebox);
-      listnotes = box.values.toList();
-      emit(NotesSuccess(data: listnotes));
-    } catch (e) {
-      // TODO
-      emit(NotesFaliure(msgerre: e.toString()));
-    }
+    Box<NotesModel> box = await Hive.openBox<NotesModel>(kHivebox);
+    listnotes = box.values.toList();
+    emit(NotesSuccess(data: listnotes));
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_view/widgets/notes_view_addnotes.dart/cousstome-textfailed.dart';
-import 'package:notes_app_view/widgets/notes_view_addnotes.dart/coustom-button.dart';
-import 'package:notes_app_view/widgets/notes_view_appbar/coustom-appbar.dart';
+import 'package:notes_app_view/widgets/cousstome-textfailed.dart';
+import 'package:notes_app_view/widgets/coustom-button.dart';
+import 'package:notes_app_view/widgets/coustom-appbar.dart';
 
 class EditNotesViewBody extends StatelessWidget {
   const EditNotesViewBody({

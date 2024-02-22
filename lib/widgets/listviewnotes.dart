@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_view/cubits/notes_view/notes_cubit.dart';
-import 'package:notes_app_view/widgets/notes_view_body/coustom-notesview.dart';
+import 'package:notes_app_view/widgets/coustom-notesview.dart';
 import 'package:notes_app_view/model/notes-model.dart';
 
 class ListViewNotes extends StatefulWidget {

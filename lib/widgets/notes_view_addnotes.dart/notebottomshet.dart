@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_view/cubits/add_notes_cubit/add_notes_cubit.dart';
+import 'package:notes_app_view/view/notes-view.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/addnotebottomshet.dart';
 
 class NoteBottomShet extends StatelessWidget {
@@ -11,7 +12,10 @@ class NoteBottomShet extends StatelessWidget {
       create: (context) => AddNotesCubit(),
       child: BlocConsumer<AddNotesCubit, AddNotesState>(
         listener: (context, state) {
-          if (state is AddNotesSuccess) {}
+          if (state is AddNotesSuccess) {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const NotesAppView()));
+          }
           if (state is AddNotesFaliure) {
             print('failed ${state.errMessage}');
           }

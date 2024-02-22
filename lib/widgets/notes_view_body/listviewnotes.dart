@@ -20,16 +20,20 @@ class _ListViewNotesState extends State<ListViewNotes> {
 
   @override
   Widget build(BuildContext context) {
-    List<NotesModel> data = BlocProvider.of<NotesCubit>(context).listnotes;
+    List<NotesModel> data = [];
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
+        if (state is NotesSuccess) {
+          data = BlocProvider.of<NotesCubit>(context).listnotes;
+        }
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 10.0),
           child: ListView.separated(
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 return CoustomNotesView(
-                  notesModel: data[index],
+                  notesModel:
+                      BlocProvider.of<NotesCubit>(context).listnotes[index],
                 );
               },
               separatorBuilder: (context, index) {

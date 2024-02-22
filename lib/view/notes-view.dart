@@ -10,39 +10,37 @@ class NotesAppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => NotesCubit(),
-        child: Scaffold(
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  context: context,
-                  builder: (context) => const NoteBottomShet(),
-                );
-              },
-              child: const Icon(
-                Icons.add,
-              ),
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+              isScrollControlled: true,
+              context: context,
+              builder: (context) => const NoteBottomShet(),
+            );
+          },
+          child: const Icon(
+            Icons.add,
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(children: [
+            const SizedBox(
+              height: 62,
             ),
-            body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Column(children: [
-                const SizedBox(
-                  height: 62,
-                ),
-                CoustomAppBar(
-                  title: 'Notes View ',
-                  icon: const Icon(Icons.search),
-                  onPressed: () {},
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Expanded(
-                  child: ListViewNotes(),
-                )
-              ]),
-            )));
+            CoustomAppBar(
+              title: 'Notes View ',
+              icon: const Icon(Icons.search),
+              onPressed: () {},
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Expanded(
+              child: ListViewNotes(),
+            )
+          ]),
+        ));
   }
 }

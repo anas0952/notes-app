@@ -32,8 +32,7 @@ class _ListViewNotesState extends State<ListViewNotes> {
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 return CoustomNotesView(
-                  notesModel:
-                      BlocProvider.of<NotesCubit>(context).listnotes[index],
+                  notesModel: data[index],
                 );
               },
               separatorBuilder: (context, index) {

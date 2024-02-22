@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+import 'package:notes_app_view/constants.dart';
 import 'package:notes_app_view/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app_view/model/notes-model.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/cousstome-textfailed.dart';
@@ -15,14 +17,15 @@ class AddNotesBottomShet extends StatefulWidget {
 
 class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
   String? title, subTitle;
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   String formattedDate =
-      DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now());
+      DateFormat('yyyy/MM/dd – hh:mm').format(DateTime.now());
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
   @override
   Widget build(BuildContext context) {
-    print(formattedDate);
-
     return Form(
       key: formKey,
       autovalidateMode: autovalidateMode,

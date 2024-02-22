@@ -1,5 +1,4 @@
 import 'package:awesome_icons/awesome_icons.dart';
-import 'package:jiffy/jiffy.dart';
 import 'package:notes_app_view/model/notes-model.dart';
 import 'package:flutter/material.dart';
 import 'package:notes_app_view/view/notes-edit.dart';
@@ -37,7 +36,9 @@ class CoustomNotesView extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    notesModel.delete();
+                  },
                   icon: const Icon(
                     FontAwesomeIcons.trash,
                     size: 24,

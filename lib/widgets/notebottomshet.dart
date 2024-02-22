@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_view/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app_view/cubits/notes_view/notes_cubit.dart';
-import 'package:notes_app_view/widgets/addnotebottomshet.dart';
+import 'package:notes_app_view/widgets/add_notebottomshet.dart';
 
 class NoteBottomShet extends StatelessWidget {
   const NoteBottomShet({super.key});

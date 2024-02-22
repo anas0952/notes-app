@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_view/cubits/notes_view/notes_cubit.dart';
 import 'package:notes_app_view/widgets/notebottomshet.dart';
 import 'package:notes_app_view/widgets/coustom-appbar.dart';
-import 'package:notes_app_view/widgets/listviewnotes.dart';
+import 'package:notes_app_view/widgets/viewnotes.dart';
 
 class NotesAppView extends StatelessWidget {
   const NotesAppView({super.key});
@@ -38,7 +38,7 @@ class NotesAppView extends StatelessWidget {
               height: 15,
             ),
             const Expanded(
-              child: ListViewNotes(),
+              child: ViewNotesList(),
             )
           ]),
         ));

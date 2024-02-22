@@ -1,10 +1,12 @@
 import 'package:awesome_icons/awesome_icons.dart';
-
+import 'package:jiffy/jiffy.dart';
+import 'package:notes_app_view/model/notes-model.dart';
 import 'package:flutter/material.dart';
 import 'package:notes_app_view/view/notes-edit.dart';
 
 class CoustomNotesView extends StatelessWidget {
-  const CoustomNotesView({super.key});
+  const CoustomNotesView({super.key, required this.notesModel});
+  final NotesModel notesModel;
 
   @override
   Widget build(BuildContext context) {
@@ -16,22 +18,22 @@ class CoustomNotesView extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.yellow,
+          color: Color(notesModel.color),
           borderRadius: BorderRadius.circular(18),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter Tips',
-                style: TextStyle(fontSize: 24, color: Colors.black),
+              title: Text(
+                notesModel.title,
+                style: const TextStyle(fontSize: 24, color: Colors.black),
               ),
-              subtitle: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 15),
+              subtitle: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15),
                 child: Text(
-                  'Build Your Carer With Tharwat Samy',
-                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  notesModel.content,
+                  style: const TextStyle(fontSize: 18, color: Colors.black),
                 ),
               ),
               trailing: IconButton(
@@ -42,11 +44,11 @@ class CoustomNotesView extends StatelessWidget {
                     color: Colors.black,
                   )),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Text(
-                'Mat 20-2022',
-                style: TextStyle(
+                notesModel.date,
+                style: const TextStyle(
                   color: Colors.black,
                 ),
               ),

@@ -4,6 +4,7 @@ import 'package:notes_app_view/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app_view/model/notes-model.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/cousstome-textfailed.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/coustom-button.dart';
+import 'package:intl/intl.dart';
 
 class AddNotesBottomShet extends StatefulWidget {
   const AddNotesBottomShet({super.key});
@@ -15,10 +16,13 @@ class AddNotesBottomShet extends StatefulWidget {
 class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
   String? title, subTitle;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  String formattedDate =
+      DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now());
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
+    print(formattedDate);
+
     return Form(
       key: formKey,
       autovalidateMode: autovalidateMode,
@@ -60,11 +64,7 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
                     onTap: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        NotesModel notes = NotesModel(
-                            title: title!,
-                            content: subTitle!,
-                            date: DateTime.now().toString(),
-                            color: Colors.red.value);
+                        NotesModel notes = notesmodel();
                         BlocProvider.of<AddNotesCubit>(context).addNote(notes);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
@@ -79,5 +79,14 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
         ),
       ),
     );
+  }
+
+  NotesModel notesmodel() {
+    NotesModel notes = NotesModel(
+        title: title!,
+        content: subTitle!,
+        date: formattedDate,
+        color: Colors.blue.value);
+    return notes;
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app_view/cubits/notes_view/notes_cubit.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/notebottomshet.dart';
 import 'package:notes_app_view/widgets/notes_view_appbar/coustom-appbar.dart';
 import 'package:notes_app_view/widgets/notes_view_body/listviewnotes.dart';
@@ -8,35 +10,39 @@ class NotesAppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showModalBottomSheet(
-              isScrollControlled: true,
-              context: context,
-              builder: (context) => const NoteBottomShet(),
-            );
-          },
-          child: const Icon(
-            Icons.add,
-          ),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
-          child: Column(children: [
-            const SizedBox(
-              height: 62,
+    return BlocProvider(
+        create: (context) => NotesCubit(),
+        child: Scaffold(
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  context: context,
+                  builder: (context) => const NoteBottomShet(),
+                );
+              },
+              child: const Icon(
+                Icons.add,
+              ),
             ),
-            CoustomAppBar(
-              title: 'Notes View ',
-              icon: const Icon(Icons.search),
-              onPressed: () {},
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const ListViewNotes()
-          ]),
-        ));
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Column(children: [
+                const SizedBox(
+                  height: 62,
+                ),
+                CoustomAppBar(
+                  title: 'Notes View ',
+                  icon: const Icon(Icons.search),
+                  onPressed: () {},
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Expanded(
+                  child: ListViewNotes(),
+                )
+              ]),
+            )));
   }
 }

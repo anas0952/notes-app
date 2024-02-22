@@ -40,7 +40,7 @@ class CoustomNotesView extends StatelessWidget {
               trailing: IconButton(
                   onPressed: () {
                     notesModel.delete();
-                    BlocProvider.of<NotesCubit>(context).listnotes;
+                    BlocProvider.of<NotesCubit>(context).getData();
                   },
                   icon: const Icon(
                     FontAwesomeIcons.trash,

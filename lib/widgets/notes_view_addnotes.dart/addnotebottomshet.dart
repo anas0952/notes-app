@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_view/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app_view/model/notes-model.dart';
-import 'package:notes_app_view/view/notes-view.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/cousstome-textfailed.dart';
 import 'package:notes_app_view/widgets/notes_view_addnotes.dart/coustom-button.dart';
 import 'package:intl/intl.dart';
@@ -72,10 +71,6 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
                             date: formattedDate,
                             color: Colors.blue.value);
                         BlocProvider.of<AddNotesCubit>(context).addNote(notes);
-                        Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(builder: (context) {
-                          return const NotesAppView();
-                        }), (route) => false);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
                         setState(() {});

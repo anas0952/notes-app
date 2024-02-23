@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_view/model/notes-model.dart';
+import 'package:notes_app_view/view/notes-view.dart';
 import 'package:notes_app_view/widgets/cousstome-textfailed.dart';
 import 'package:notes_app_view/widgets/coustom-button.dart';
 import 'package:notes_app_view/widgets/coustom-appbar.dart';
 
-class EditNotesViewBody extends StatelessWidget {
+class EditNotesViewBody extends StatefulWidget {
   const EditNotesViewBody({
     super.key,
+    required this.notesModel,
   });
+  final NotesModel notesModel;
+
+  @override
+  State<EditNotesViewBody> createState() => _EditNotesViewBodyState();
+}
+
+class _EditNotesViewBodyState extends State<EditNotesViewBody> {
+  String? title, subTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -18,22 +29,39 @@ class EditNotesViewBody extends StatelessWidget {
         ),
         CoustomAppBar(
           title: 'Edits Notes ',
-          icon: const Icon(Icons.check),
-          onPressed: () {},
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
         const SizedBox(
-          height: 15,
+          height: 22,
         ),
-        const CoustomTextField(
+        CoustomTextField(
           hint: 'Title',
+          initialValue: widget.notesModel.title,
+          onChanged: (val) {
+            title = val;
+          },
         ),
-        const CoustomTextField(
+        CoustomTextField(
           hint: 'Content',
+          initialValue: widget.notesModel.content,
           maxLines: 4,
+          onChanged: (val) {
+            subTitle = val;
+          },
         ),
         CoustomButton(
           text: 'Edit Notes',
-          onTap: () {},
+          onTap: () {
+            widget.notesModel.title = title ?? widget.notesModel.title;
+            widget.notesModel.content = subTitle ?? widget.notesModel.content;
+            widget.notesModel.save();
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => const NotesAppView()),
+                (route) => false);
+          },
         )
       ]),
     );

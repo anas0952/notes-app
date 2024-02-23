@@ -14,7 +14,9 @@ class CoustomNotesView extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          return const NotesEditApp();
+          return NotesEditApp(
+            notesModel: notesModel,
+          );
         }));
       },
       child: Container(

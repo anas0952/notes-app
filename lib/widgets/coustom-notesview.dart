@@ -47,7 +47,7 @@ class CoustomNotesView extends StatelessWidget {
                   icon: const Icon(
                     FontAwesomeIcons.trash,
                     size: 24,
-                    color: Colors.black,
+                    color: Colors.white,
                   )),
             ),
             Padding(

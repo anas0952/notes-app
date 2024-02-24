@@ -33,7 +33,6 @@ class ItemsColors extends StatelessWidget {
 
 class ListItemsColors extends StatefulWidget {
   const ListItemsColors({super.key});
-
   @override
   State<ListItemsColors> createState() => _ListItemsColorsState();
 }

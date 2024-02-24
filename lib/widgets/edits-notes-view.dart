@@ -4,6 +4,7 @@ import 'package:notes_app_view/view/notes-view.dart';
 import 'package:notes_app_view/widgets/cousstome-textfailed.dart';
 import 'package:notes_app_view/widgets/coustom-button.dart';
 import 'package:notes_app_view/widgets/coustom-appbar.dart';
+import 'package:notes_app_view/widgets/items_color.dart';
 
 class EditNotesViewBody extends StatefulWidget {
   const EditNotesViewBody({
@@ -51,6 +52,13 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
           onChanged: (val) {
             subTitle = val;
           },
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        const ListItemsColors(),
+        const SizedBox(
+          height: 20,
         ),
         CoustomButton(
           text: 'Edit Notes',

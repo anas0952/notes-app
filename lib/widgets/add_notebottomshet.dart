@@ -55,7 +55,7 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
                 hint: 'Content',
                 maxLines: 4,
               ),
-              const ItemsColors(),
+              const ListItemsColors(),
               const SizedBox(
                 height: 60,
               ),

@@ -5,13 +5,13 @@ import 'package:notes_app_view/cubits/notes_view/notes_cubit.dart';
 import 'package:notes_app_view/widgets/coustom-notesview.dart';
 import 'package:notes_app_view/model/notes-model.dart';
 
-class ViewNotesList extends StatefulWidget {
-  const ViewNotesList({super.key});
+class NotesListView extends StatefulWidget {
+  const NotesListView({super.key});
   @override
-  State<ViewNotesList> createState() => _ViewNotesListState();
+  State<NotesListView> createState() => _NotesListViewState();
 }
 
-class _ViewNotesListState extends State<ViewNotesList> {
+class _NotesListViewState extends State<NotesListView> {
   @override
   void initState() {
     BlocProvider.of<NotesCubit>(context).getData();

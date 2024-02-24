@@ -36,7 +36,7 @@ class NotesAppView extends StatelessWidget {
               height: 15,
             ),
             const Expanded(
-              child: ViewNotesList(),
+              child: NotesListView(),
             )
           ]),
         ));

@@ -55,9 +55,12 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
                 hint: 'Content',
                 maxLines: 4,
               ),
+              const SizedBox(
+                height: 30,
+              ),
               const ListItemsColors(),
               const SizedBox(
-                height: 60,
+                height: 30,
               ),
               BlocBuilder<AddNotesCubit, AddNotesState>(
                 builder: (context, state) {

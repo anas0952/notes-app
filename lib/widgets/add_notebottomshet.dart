@@ -5,6 +5,7 @@ import 'package:notes_app_view/model/notes-model.dart';
 import 'package:notes_app_view/widgets/cousstome-textfailed.dart';
 import 'package:notes_app_view/widgets/coustom-button.dart';
 import 'package:intl/intl.dart';
+import 'package:notes_app_view/widgets/items_color.dart';
 
 class AddNotesBottomShet extends StatefulWidget {
   const AddNotesBottomShet({super.key});
@@ -54,6 +55,7 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
                 hint: 'Content',
                 maxLines: 4,
               ),
+              const ItemsColors(),
               const SizedBox(
                 height: 60,
               ),
@@ -65,11 +67,7 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
                     onTap: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        NotesModel notes = NotesModel(
-                            title: title!,
-                            content: subTitle!,
-                            date: formattedDate,
-                            color: Colors.blue.value);
+                        NotesModel notes = addnotes();
                         BlocProvider.of<AddNotesCubit>(context).addNote(notes);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
@@ -84,5 +82,14 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
         ),
       ),
     );
+  }
+
+  NotesModel addnotes() {
+    NotesModel notes = NotesModel(
+        title: title!,
+        content: subTitle!,
+        date: formattedDate,
+        color: Colors.blue.value);
+    return notes;
   }
 }

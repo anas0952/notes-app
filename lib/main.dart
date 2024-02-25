@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app_view/constants.dart';
-import 'package:notes_app_view/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app_view/cubits/notes_view/notes_cubit.dart';
 import 'package:notes_app_view/model/notes-model.dart';
 import 'package:notes_app_view/simple_bloc_observer.dart';

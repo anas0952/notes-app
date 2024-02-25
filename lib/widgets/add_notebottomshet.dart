@@ -19,6 +19,8 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  NotesModel? notesModel;
+
   String formattedDate =
       DateFormat('yyyy/MM/dd – hh:mm').format(DateTime.now());
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;

@@ -68,6 +68,10 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
             widget.notesModel.title = title ?? widget.notesModel.title;
             widget.notesModel.content = subTitle ?? widget.notesModel.content;
             widget.notesModel.save();
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Title(
+                    color: Colors.black,
+                    child: const Text('Edits For Notes By Success'))));
             Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(builder: (context) => const NotesAppView()),
                 (route) => false);

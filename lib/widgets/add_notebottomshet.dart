@@ -70,7 +70,11 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
                     onTap: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        NotesModel notes = addnotes();
+                        NotesModel notes = NotesModel(
+                            title: title!,
+                            content: subTitle!,
+                            date: formattedDate,
+                            color: Colors.blue.value);
                         BlocProvider.of<AddNotesCubit>(context).addNote(notes);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
@@ -85,14 +89,5 @@ class _AddNotesBottomShetState extends State<AddNotesBottomShet> {
         ),
       ),
     );
-  }
-
-  NotesModel addnotes() {
-    NotesModel notes = NotesModel(
-        title: title!,
-        content: subTitle!,
-        date: formattedDate,
-        color: Colors.blue.value);
-    return notes;
   }
 }

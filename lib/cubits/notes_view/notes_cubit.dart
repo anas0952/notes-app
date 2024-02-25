@@ -12,6 +12,8 @@ class NotesCubit extends Cubit<NotesState> {
   getData() async {
     Box<NotesModel> box = await Hive.openBox<NotesModel>(kHivebox);
     listnotes = box.values.toList();
-    emit(NotesSuccess(data: listnotes));
+    emit(NotesSuccess(
+      data: listnotes,
+    ));
   }
 }

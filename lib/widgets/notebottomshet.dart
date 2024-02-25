@@ -14,6 +14,10 @@ class NoteBottomShet extends StatelessWidget {
         listener: (context, state) {
           if (state is AddNotesSuccess) {
             BlocProvider.of<NotesCubit>(context).getData();
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Title(
+                    color: Colors.black,
+                    child: const Text('Add To Notes Success'))));
             Navigator.pop(context);
           }
         },
